@@ -12,12 +12,94 @@ if( MULLE_TRACE_INCLUDE)
 endif()
 
 #
+# Generated from sourcetree: 0DD3DA49-BF1C-41AC-AD61-56D1DEF6D365;libgwavi;no-all-load,no-cmake-loader,no-cmake-searchpath,no-import;gwavi
+# Disable with : `mulle-sourcetree mark libgwavi no-link`
+# Disable for this platform: `mulle-sourcetree mark libgwavi no-cmake-platform-${MULLE_UNAME}`
+# Disable for a sdk: `mulle-sourcetree mark libgwavi no-cmake-sdk-<name>`
+#
+if( NOT LIBGWAVI_LIBRARY)
+   find_library( LIBGWAVI_LIBRARY NAMES
+      ${CMAKE_STATIC_LIBRARY_PREFIX}gwavi${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
+      ${CMAKE_STATIC_LIBRARY_PREFIX}gwavi${CMAKE_STATIC_LIBRARY_SUFFIX}
+      gwavi
+      NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH
+   )
+   if( NOT LIBGWAVI_LIBRARY AND NOT DEPENDENCY_IGNORE_SYSTEM_LIBARIES)
+      find_library( LIBGWAVI_LIBRARY NAMES
+         ${CMAKE_STATIC_LIBRARY_PREFIX}gwavi${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
+         ${CMAKE_STATIC_LIBRARY_PREFIX}gwavi${CMAKE_STATIC_LIBRARY_SUFFIX}
+         gwavi
+      )
+   endif()
+   message( STATUS "LIBGWAVI_LIBRARY is ${LIBGWAVI_LIBRARY}")
+   #
+   # The order looks ascending, but due to the way this file is read
+   # it ends up being descending, which is what we need.
+   #
+   if( LIBGWAVI_LIBRARY)
+      #
+      # Add LIBGWAVI_LIBRARY to DEPENDENCY_LIBRARIES list.
+      # Disable with: `mulle-sourcetree mark libgwavi no-cmake-add`
+      #
+      list( APPEND DEPENDENCY_LIBRARIES ${LIBGWAVI_LIBRARY})
+      #
+      # Inherit information from dependency.
+      # Encompasses: no-cmake-searchpath,no-cmake-dependency,no-cmake-loader
+      # Disable with: `mulle-sourcetree mark libgwavi no-cmake-inherit`
+      #
+      # temporarily expand CMAKE_MODULE_PATH
+      get_filename_component( _TMP_LIBGWAVI_ROOT "${LIBGWAVI_LIBRARY}" DIRECTORY)
+      get_filename_component( _TMP_LIBGWAVI_ROOT "${_TMP_LIBGWAVI_ROOT}" DIRECTORY)
+      #
+      #
+      # Search for "Definitions.cmake" and "DependenciesAndLibraries.cmake" to include.
+      # Disable with: `mulle-sourcetree mark libgwavi no-cmake-dependency`
+      #
+      foreach( _TMP_LIBGWAVI_NAME "gwavi")
+         set( _TMP_LIBGWAVI_DIR "${_TMP_LIBGWAVI_ROOT}/include/${_TMP_LIBGWAVI_NAME}/cmake")
+         # use explicit path to avoid "surprises"
+         if( IS_DIRECTORY "${_TMP_LIBGWAVI_DIR}")
+            list( INSERT CMAKE_MODULE_PATH 0 "${_TMP_LIBGWAVI_DIR}")
+            #
+            include( "${_TMP_LIBGWAVI_DIR}/DependenciesAndLibraries.cmake" OPTIONAL)
+            #
+            list( REMOVE_ITEM CMAKE_MODULE_PATH "${_TMP_LIBGWAVI_DIR}")
+            #
+            unset( LIBGWAVI_DEFINITIONS)
+            include( "${_TMP_LIBGWAVI_DIR}/Definitions.cmake" OPTIONAL)
+            list( APPEND INHERITED_DEFINITIONS ${LIBGWAVI_DEFINITIONS})
+            break()
+         else()
+            message( STATUS "${_TMP_LIBGWAVI_DIR} not found")
+         endif()
+      endforeach()
+   else()
+      # Disable with: `mulle-sourcetree mark libgwavi no-require-link`
+      message( FATAL_ERROR "LIBGWAVI_LIBRARY was not found")
+   endif()
+endif()
+
+
+#
 # Generated from sourcetree: A23920C4-DFC3-4172-9566-3CB22954A024;MulleUIImage;no-singlephase;
 # Disable with : `mulle-sourcetree mark MulleUIImage no-link`
 # Disable for this platform: `mulle-sourcetree mark MulleUIImage no-cmake-platform-${MULLE_UNAME}`
+# Disable for a sdk: `mulle-sourcetree mark MulleUIImage no-cmake-sdk-<name>`
 #
 if( NOT MULLE_UI_IMAGE_LIBRARY)
-   find_library( MULLE_UI_IMAGE_LIBRARY NAMES ${CMAKE_STATIC_LIBRARY_PREFIX}MulleUIImage${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX} ${CMAKE_STATIC_LIBRARY_PREFIX}MulleUIImage${CMAKE_STATIC_LIBRARY_SUFFIX} MulleUIImage NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH)
+   find_library( MULLE_UI_IMAGE_LIBRARY NAMES
+      ${CMAKE_STATIC_LIBRARY_PREFIX}MulleUIImage${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
+      ${CMAKE_STATIC_LIBRARY_PREFIX}MulleUIImage${CMAKE_STATIC_LIBRARY_SUFFIX}
+      MulleUIImage
+      NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH
+   )
+   if( NOT MULLE_UI_IMAGE_LIBRARY AND NOT DEPENDENCY_IGNORE_SYSTEM_LIBARIES)
+      find_library( MULLE_UI_IMAGE_LIBRARY NAMES
+         ${CMAKE_STATIC_LIBRARY_PREFIX}MulleUIImage${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
+         ${CMAKE_STATIC_LIBRARY_PREFIX}MulleUIImage${CMAKE_STATIC_LIBRARY_SUFFIX}
+         MulleUIImage
+      )
+   endif()
    message( STATUS "MULLE_UI_IMAGE_LIBRARY is ${MULLE_UI_IMAGE_LIBRARY}")
    #
    # The order looks ascending, but due to the way this file is read
@@ -28,11 +110,7 @@ if( NOT MULLE_UI_IMAGE_LIBRARY)
       # Add MULLE_UI_IMAGE_LIBRARY to ALL_LOAD_DEPENDENCY_LIBRARIES list.
       # Disable with: `mulle-sourcetree mark MulleUIImage no-cmake-add`
       #
-      set( ALL_LOAD_DEPENDENCY_LIBRARIES
-         ${ALL_LOAD_DEPENDENCY_LIBRARIES}
-         ${MULLE_UI_IMAGE_LIBRARY}
-         CACHE INTERNAL "need to cache this"
-      )
+      list( APPEND ALL_LOAD_DEPENDENCY_LIBRARIES ${MULLE_UI_IMAGE_LIBRARY})
       #
       # Inherit information from dependency.
       # Encompasses: no-cmake-searchpath,no-cmake-dependency,no-cmake-loader
@@ -43,28 +121,25 @@ if( NOT MULLE_UI_IMAGE_LIBRARY)
       get_filename_component( _TMP_MULLE_UI_IMAGE_ROOT "${_TMP_MULLE_UI_IMAGE_ROOT}" DIRECTORY)
       #
       #
-      # Search for "DependenciesAndLibraries.cmake" to include.
+      # Search for "Definitions.cmake" and "DependenciesAndLibraries.cmake" to include.
       # Disable with: `mulle-sourcetree mark MulleUIImage no-cmake-dependency`
       #
       foreach( _TMP_MULLE_UI_IMAGE_NAME "MulleUIImage")
          set( _TMP_MULLE_UI_IMAGE_DIR "${_TMP_MULLE_UI_IMAGE_ROOT}/include/${_TMP_MULLE_UI_IMAGE_NAME}/cmake")
          # use explicit path to avoid "surprises"
-         if( EXISTS "${_TMP_MULLE_UI_IMAGE_DIR}/DependenciesAndLibraries.cmake")
-            unset( MULLE_UI_IMAGE_DEFINITIONS)
+         if( IS_DIRECTORY "${_TMP_MULLE_UI_IMAGE_DIR}")
             list( INSERT CMAKE_MODULE_PATH 0 "${_TMP_MULLE_UI_IMAGE_DIR}")
             #
-            include( "${_TMP_MULLE_UI_IMAGE_DIR}/DependenciesAndLibraries.cmake")
-            #
+            include( "${_TMP_MULLE_UI_IMAGE_DIR}/DependenciesAndLibraries.cmake" OPTIONAL)
             #
             list( REMOVE_ITEM CMAKE_MODULE_PATH "${_TMP_MULLE_UI_IMAGE_DIR}")
-            set( INHERITED_DEFINITIONS
-               ${INHERITED_DEFINITIONS}
-               ${MULLE_UI_IMAGE_DEFINITIONS}
-               CACHE INTERNAL "need to cache this"
-            )
+            #
+            unset( MULLE_UI_IMAGE_DEFINITIONS)
+            include( "${_TMP_MULLE_UI_IMAGE_DIR}/Definitions.cmake" OPTIONAL)
+            list( APPEND INHERITED_DEFINITIONS ${MULLE_UI_IMAGE_DEFINITIONS})
             break()
          else()
-            message( STATUS "${_TMP_MULLE_UI_IMAGE_DIR}/DependenciesAndLibraries.cmake not found")
+            message( STATUS "${_TMP_MULLE_UI_IMAGE_DIR} not found")
          endif()
       endforeach()
       #
@@ -75,11 +150,7 @@ if( NOT MULLE_UI_IMAGE_LIBRARY)
          foreach( _TMP_MULLE_UI_IMAGE_NAME "MulleUIImage")
             set( _TMP_MULLE_UI_IMAGE_FILE "${_TMP_MULLE_UI_IMAGE_ROOT}/include/${_TMP_MULLE_UI_IMAGE_NAME}/MulleObjCLoader+${_TMP_MULLE_UI_IMAGE_NAME}.h")
             if( EXISTS "${_TMP_MULLE_UI_IMAGE_FILE}")
-               set( INHERITED_OBJC_LOADERS
-                  ${INHERITED_OBJC_LOADERS}
-                  ${_TMP_MULLE_UI_IMAGE_FILE}
-                  CACHE INTERNAL "need to cache this"
-               )
+               list( APPEND INHERITED_OBJC_LOADERS ${_TMP_MULLE_UI_IMAGE_FILE})
                break()
             endif()
          endforeach()
@@ -87,76 +158,5 @@ if( NOT MULLE_UI_IMAGE_LIBRARY)
    else()
       # Disable with: `mulle-sourcetree mark MulleUIImage no-require-link`
       message( FATAL_ERROR "MULLE_UI_IMAGE_LIBRARY was not found")
-   endif()
-endif()
-
-
-#
-# Generated from sourcetree: 0DD3DA49-BF1C-41AC-AD61-56D1DEF6D365;libgwavi;no-all-load,no-cmake-loader,no-cmake-searchpath,no-import;gwavi
-# Disable with : `mulle-sourcetree mark libgwavi no-link`
-# Disable for this platform: `mulle-sourcetree mark libgwavi no-cmake-platform-${MULLE_UNAME}`
-#
-if( NOT GWAVI_LIBRARY)
-   find_library( GWAVI_LIBRARY NAMES ${CMAKE_STATIC_LIBRARY_PREFIX}gwavi${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX} ${CMAKE_STATIC_LIBRARY_PREFIX}gwavi${CMAKE_STATIC_LIBRARY_SUFFIX} gwavi NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH)
-   message( STATUS "GWAVI_LIBRARY is ${GWAVI_LIBRARY}")
-   #
-   # The order looks ascending, but due to the way this file is read
-   # it ends up being descending, which is what we need.
-   #
-   if( GWAVI_LIBRARY)
-      #
-      # Add GWAVI_LIBRARY to DEPENDENCY_LIBRARIES list.
-      # Disable with: `mulle-sourcetree mark libgwavi no-cmake-add`
-      #
-      set( DEPENDENCY_LIBRARIES
-         ${DEPENDENCY_LIBRARIES}
-         ${GWAVI_LIBRARY}
-         CACHE INTERNAL "need to cache this"
-      )
-      #
-      # Inherit information from dependency.
-      # Encompasses: no-cmake-searchpath,no-cmake-dependency,no-cmake-loader
-      # Disable with: `mulle-sourcetree mark libgwavi no-cmake-inherit`
-      #
-      # temporarily expand CMAKE_MODULE_PATH
-      get_filename_component( _TMP_GWAVI_ROOT "${GWAVI_LIBRARY}" DIRECTORY)
-      get_filename_component( _TMP_GWAVI_ROOT "${_TMP_GWAVI_ROOT}" DIRECTORY)
-      #
-      #
-      # Search for "DependenciesAndLibraries.cmake" to include.
-      # Disable with: `mulle-sourcetree mark libgwavi no-cmake-dependency`
-      #
-      foreach( _TMP_GWAVI_NAME "gwavi")
-         set( _TMP_GWAVI_DIR "${_TMP_GWAVI_ROOT}/include/${_TMP_GWAVI_NAME}/cmake")
-         # use explicit path to avoid "surprises"
-         if( EXISTS "${_TMP_GWAVI_DIR}/DependenciesAndLibraries.cmake")
-            unset( GWAVI_DEFINITIONS)
-            list( INSERT CMAKE_MODULE_PATH 0 "${_TMP_GWAVI_DIR}")
-            # we only want top level INHERIT_OBJC_LOADERS, so disable them
-            if( NOT NO_INHERIT_OBJC_LOADERS)
-               set( NO_INHERIT_OBJC_LOADERS OFF)
-            endif()
-            list( APPEND _TMP_INHERIT_OBJC_LOADERS ${NO_INHERIT_OBJC_LOADERS})
-            set( NO_INHERIT_OBJC_LOADERS ON)
-            #
-            include( "${_TMP_GWAVI_DIR}/DependenciesAndLibraries.cmake")
-            #
-            list( GET _TMP_INHERIT_OBJC_LOADERS -1 NO_INHERIT_OBJC_LOADERS)
-            list( REMOVE_AT _TMP_INHERIT_OBJC_LOADERS -1)
-            #
-            list( REMOVE_ITEM CMAKE_MODULE_PATH "${_TMP_GWAVI_DIR}")
-            set( INHERITED_DEFINITIONS
-               ${INHERITED_DEFINITIONS}
-               ${GWAVI_DEFINITIONS}
-               CACHE INTERNAL "need to cache this"
-            )
-            break()
-         else()
-            message( STATUS "${_TMP_GWAVI_DIR}/DependenciesAndLibraries.cmake not found")
-         endif()
-      endforeach()
-   else()
-      # Disable with: `mulle-sourcetree mark libgwavi no-require-link`
-      message( FATAL_ERROR "GWAVI_LIBRARY was not found")
    endif()
 endif()

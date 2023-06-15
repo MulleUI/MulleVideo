@@ -139,7 +139,6 @@
    struct CGBitmapInfo       aviInfo;
    BOOL                      rval = 0;
    UIBitmapImage             *scaled;
-   UIBitmapImage             *jpeg;
    struct mulle_data         data;
 
    aviInfo = [self bitmapInfo];

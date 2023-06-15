@@ -22,7 +22,6 @@ static void  my_tje_write_func( void* context, void* data, int size)
 - (struct mulle_data) JPGCDataWithQuality:(CGFloat) quality
                                 allocator:(struct mulle_allocator *) allocator
 {
-   int                   rval;
    NSUInteger            lineLength;
    struct mulle_buffer   buffer;
    struct CGBitmapInfo   bitmapInfo;

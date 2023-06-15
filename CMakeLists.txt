@@ -24,78 +24,41 @@ include( Environment)
 
 include( Files)
 
-if( "${MULLE_PROJECT_TYPE}" STREQUAL "Executable")
+include( IDESupport OPTIONAL)
 
-   ### Executable
+### Library
 
-   include( Dependencies)
-   include( Executable)
+if( HEADER_PHASE)
+   install( FILES ${INSTALL_PUBLIC_HEADERS}  DESTINATION "include/${PROJECT_NAME}")
+   install( FILES ${INSTALL_PRIVATE_HEADERS} DESTINATION "include/${PROJECT_NAME}")
+   install( FILES ${INSTALL_CMAKE_INCLUDES}          DESTINATION "include/${PROJECT_NAME}/cmake")
 
-   # use EXECUTABLE_COMPILE_TARGET for compiler options
-   target_compile_definitions( "${EXECUTABLE_COMPILE_TARGET}" PUBLIC)
-   target_compile_options( "${EXECUTABLE_COMPILE_TARGET}" PUBLIC)
-   # use EXECUTABLE_LINK_TARGET for linker options
-   if( LINK_PHASE)
-      target_link_options( "${EXECUTABLE_LINK_TARGET}" PUBLIC)
+   # short cut out
+   if( NOT COMPILE_PHASE AND NOT LINK_PHASE)
+      return()
    endif()
-
-   include( InstallExecutable)
-
-   # only for Executable
-   include( Motd OPTIONAL)
-
-
-elseif( "${MULLE_PROJECT_TYPE}" STREQUAL "Framework")
-
-   ### Framework
-
-   if( LINK_PHASE)
-      include( Dependencies)
-   endif()
-
-   include( Framework)
-   include( InstallFramework)
-
-elseif( "${MULLE_PROJECT_TYPE}" STREQUAL "Library")
-
-   ### Library
-
-   if( HEADER_PHASE)
-      install( FILES ${INSTALL_PUBLIC_HEADERS}  DESTINATION "include/${PROJECT_NAME}")
-      install( FILES ${INSTALL_PRIVATE_HEADERS} DESTINATION "include/${PROJECT_NAME}/private")
-      install( FILES ${CMAKE_INCLUDES}          DESTINATION "include/${PROJECT_NAME}/cmake")
-
-      # short cut out
-      if( NOT COMPILE_PHASE AND NOT LINK_PHASE)
-         return()
-      endif()
-   endif()
-
-   if( LINK_PHASE)
-      include( Dependencies OPTIONAL)
-   endif()
-
-   include( Library)
-
-   message( STATUS "LIBRARY_NAME=\"${LIBRARY_NAME}\"")
-   message( STATUS "LIBRARY_COMPILE_TARGET=\"${LIBRARY_COMPILE_TARGET}\"")
-   message( STATUS "LIBRARY_LINK_TARGET=\"${LIBRARY_LINK_TARGET}\"")
-
-   # use LIBRARY_COMPILE_TARGET for compiler options
-   target_compile_definitions( "${LIBRARY_COMPILE_TARGET}" PUBLIC)
-   target_compile_options( "${LIBRARY_COMPILE_TARGET}" PUBLIC)
-   # use LIBRARY_LINK_TARGET for linker options
-   if( LINK_PHASE)
-      target_link_options( "${LIBRARY_LINK_TARGET}" PUBLIC)
-   endif()
-
-   include( InstallLibrary)
-
-else()
-
-   message( ERROR "Unknown project type \"${MULLE_PROJECT_TYPE}\"")
-
 endif()
+
+if( LINK_PHASE)
+   include( Dependencies OPTIONAL)
+endif()
+
+include( Library)
+
+message( STATUS "LIBRARY_NAME=\"${LIBRARY_NAME}\"")
+message( STATUS "LIBRARY_COMPILE_TARGET=\"${LIBRARY_COMPILE_TARGET}\"")
+message( STATUS "LIBRARY_LINK_TARGET=\"${LIBRARY_LINK_TARGET}\"")
+
+# use LIBRARY_COMPILE_TARGET for compiler options
+target_compile_definitions( "${LIBRARY_COMPILE_TARGET}" PUBLIC)
+target_compile_options( "${LIBRARY_COMPILE_TARGET}" PUBLIC -Wall)
+# use LIBRARY_LINK_TARGET for linker options
+if( LINK_PHASE)
+   target_link_options( "${LIBRARY_LINK_TARGET}" PUBLIC)
+endif()
+
+include( InstallLibrary)
+
 
 include( FinalOutput OPTIONAL)
 
