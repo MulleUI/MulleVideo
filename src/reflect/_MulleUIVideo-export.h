@@ -9,6 +9,13 @@
  *
  *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
  */
+#ifndef mulle_ui_video_export_h__
+#define mulle_ui_video_export_h__
+
+
 #import "UIAVIMovieWriter.h"
 #import "UIBitmapImage+JPGEncoder.h"
 #import "MulleObjCLoader+MulleUIVideo.h"
+
+
+#endif
