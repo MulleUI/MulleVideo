@@ -42,7 +42,7 @@
 @implementation UIAVIMovieWriter
 
 + (instancetype) movieWithUTF8String:(char *) filename
-                          bitmapSize:(struct MulleIntegerSize) bitmapSize
+                          bitmapSize:(CGPixelSize) bitmapSize
                          frameRateHz:(CGFloat) frameRateHz
                                codec:(NSUInteger) codec;
 {
@@ -54,7 +54,7 @@
 
 
 - (instancetype) initWithUTF8String:(char *) filename
-                         bitmapSize:(struct MulleIntegerSize) bitmapSize
+                         bitmapSize:(CGPixelSize) bitmapSize
                         frameRateHz:(CGFloat) frameRateHz
                               codec:(NSUInteger) codec
 {

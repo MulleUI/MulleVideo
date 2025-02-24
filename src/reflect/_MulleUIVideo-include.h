@@ -14,15 +14,18 @@
 #ifndef _mulle_ui_video_include_h__
 #define _mulle_ui_video_include_h__
 
-// You can tweak the following #include with these commands.
-// (Use 0DD3DA49-BF1C-41AC-AD61-56D1DEF6D365 instead of libgwavi if there are duplicate entries)
-//    remove #include:: `mulle-sde dependency mark libgwavi no-header`
-//    rename:              `mulle-sde dependency|library set libgwavi include whatever.h`
-//    reorder:             `mulle-sde dependency move libgwavi <up|down>`
-//    toggle #include:    `mulle-sde dependency mark libgwavi [no-]import`
-//    toggle public:       `mulle-sde dependency mark libgwavi [no-]public`
-//    toggle optional:     `mulle-sde dependency mark libgwavi [no-]require`
-//    remove for platform: `mulle-sde dependency mark libgwavi no-platform-<uname>`
+// To remove the following dependency (headers and library) completely:
+//   `mulle-sde dependency remove libgwavi`
+// (Use 0DD3DA49-BF1C-41AC-AD61-56D1DEF6D365 instead of libgwavi, if there are duplicate entries)
+//
+// You can tweak the following #include with these commands:
+//    remove #include: `mulle-sde dependency mark libgwavi no-header`
+//    rename              : `mulle-sde dependency|library set libgwavi include whatever.h`
+//    reorder             : `mulle-sde dependency move libgwavi <up|down>`
+//    toggle #include: `mulle-sde dependency mark libgwavi [no-]import`
+//    toggle public       : `mulle-sde dependency mark libgwavi [no-]public`
+//    toggle optional     : `mulle-sde dependency mark libgwavi [no-]require`
+//    remove for platform : `mulle-sde dependency mark libgwavi no-platform-<uname>`
 //        (use `mulle-sourcetree-to-c --unames` to list known values)
 #include <gwavi/gwavi.h>   // libgwavi
 

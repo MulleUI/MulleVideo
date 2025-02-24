@@ -135,6 +135,7 @@ static void  didDraw( UIWindow *window,
    NSUInteger             frameCount;
    NSInvocation           *invocation;
    MulleInvocationQueue   *queue;
+   NSUInteger             configuration;
 
    avi        = [window userInfo];
    frameCount = [(CGContext *) context numberOfFrames];
@@ -142,10 +143,11 @@ static void  didDraw( UIWindow *window,
    queue = [window invocationQueueForNameUTF8String:"avi"];
    if( ! queue)
    {
-      queue = [MulleInvocationQueue invocationQueue];
-      [queue setTerminateWaitsForCompletion:YES];
-      [queue setCatchesExceptions:YES];
-      [queue setTrace:YES];
+      configuration = MulleInvocationQueueTrace
+                      | MulleInvocationQueueCatchesExceptions
+                      | MulleInvocationQueueTerminateWaitsForCompletion;
+      queue = [MulleInvocationQueue invocationQueueWithCapacity:0
+                                                  configuration:configuration];
       [window setInvocationQueue:queue
                forNameUTF8String:"avi"];
       [queue start];
@@ -156,7 +158,7 @@ static void  didDraw( UIWindow *window,
       fprintf( stderr, "close\n");
 
       invocation = [NSInvocation mulleInvocationWithTarget:avi
-                                                   selector:@selector( close)];
+                                                  selector:@selector( close)];
       [queue addFinalInvocation:invocation];
       [window setUserInfo:nil];
 
@@ -191,11 +193,11 @@ int   main( int argc, char *argv[])
                             styleMask:UIWindowStyleMaskDefault];
 
    [window setBackgroundColor:CGColorMakeWithGrayByte( 102)];
-   [window setDrawCallback:(CALayerDrawCallback_t *) draw];
+   [window setDrawCallback:(CGGraphicsLayerDrawCallback_t *) draw];
    [window setFrameRateHz:60.0];
 
    avi = [UIAVIMovieWriter movieWithUTF8String:"animated.avi"
-                                    bitmapSize:MulleIntegerSizeMake( 360, 200)
+                                    bitmapSize:CGPixelSizeMake( 360, 200)
                                    frameRateHz:60.0
                                          codec:UIAVIMovieMJPGCodec];
    [window setUserInfo:avi];
@@ -224,7 +226,7 @@ int   main( int argc, char *argv[])
 // ║⌐        █⌐'║▄ Γr2«    ║▀                 ▄▄▄      ╙▌▄███      █         ▌
 // █]     ,▄▐H  ██████═ª  ╓` ▄█▀▀▀▀█▄        ████     ╓███` `╙╙║█  ▐H        █
 // █ "% ,▄▀ ║░╠K█═╣███^   ╛╓█▀      ▐█         ,╓╓═ª╙└   █      ╙█▄▐▌▓######▌╫
-// █║▄▄▄█▄▄▄║H:  "╙▀███▄╓▄,█▌╓▄,,▄∩  ██p$ΦΦ▀▀▀▀▀ΦΦΦR≡≥▄╓ ║▄       ╙j▌` ▄▀╙╗ `╫
+// █║▄▄▄█▄▄▄║H:  "╙▀███▄╓▄,█▌╓▄,,▄∩  ██p$ΦΦ▀▀▀▀▀ΦΦΦR≡≥▄╓ ║▄   ╙j▌` ▄▀╙╗ `╫
 // █"      ╙▐H-═M ▄███████¥█H "^╙    '█, ,«^``     `     ║▌        ▐M▄▀    "Φ█
 // ║        !█▄▄████≤═^`╓█ █▌╓▀╦▄▀█   ╙█⌐               ╓█▌        ▓ `       █
 //  ▌      ,▄██╫██ ▄█═╜" █▌▐█╣Hj⌐ █    █▌╙¥w,           ██▄       ╓▌        ▐M

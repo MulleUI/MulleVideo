@@ -11,41 +11,50 @@
  *
  */
 
-// You can tweak the following #import with these commands.
-// (Use 5C389F3C-C392-4C0E-A616-0CE162C25BFB instead of MulleUI if there are duplicate entries)
-//    remove #import: : `mulle-sde dependency mark MulleUI no-header`
-//    rename:              `mulle-sde dependency|library set MulleUI include whatever.h`
-//    reorder:             `mulle-sde dependency move MulleUI <up|down>`
-//    toggle #import:     `mulle-sde dependency mark MulleUI [no-]import`
-//    toggle public:       `mulle-sde dependency mark MulleUI [no-]public`
-//    toggle optional:     `mulle-sde dependency mark MulleUI [no-]require`
-//    remove for platform: `mulle-sde dependency mark MulleUI no-platform-<uname>`
+// To remove the following dependency (headers and library) completely:
+//   `mulle-sde dependency remove MulleUI`
+// (Use 5C389F3C-C392-4C0E-A616-0CE162C25BFB instead of MulleUI, if there are duplicate entries)
+//
+// You can tweak the following #import with these commands:
+//    remove #import      : `mulle-sde dependency mark MulleUI no-header`
+//    rename              : `mulle-sde dependency|library set MulleUI include whatever.h`
+//    reorder             : `mulle-sde dependency move MulleUI <up|down>`
+//    toggle #import      : `mulle-sde dependency mark MulleUI [no-]import`
+//    toggle public       : `mulle-sde dependency mark MulleUI [no-]public`
+//    toggle optional     : `mulle-sde dependency mark MulleUI [no-]require`
+//    remove for platform : `mulle-sde dependency mark MulleUI no-platform-<uname>`
 //        (use `mulle-sourcetree-to-c --unames` to list known values)
 #import <MulleUI/MulleUI.h>   // MulleUI
 
-// You can tweak the following #import with these commands.
-// (Use DAED5365-9893-4DA0-98B0-84620A9F4B94 instead of MulleUIVideo if there are duplicate entries)
-//    remove #import: : `mulle-sde dependency mark MulleUIVideo no-header`
-//    rename:              `mulle-sde dependency|library set MulleUIVideo include whatever.h`
-//    reorder:             `mulle-sde dependency move MulleUIVideo <up|down>`
-//    toggle #import:     `mulle-sde dependency mark MulleUIVideo [no-]import`
-//    toggle public:       `mulle-sde dependency mark MulleUIVideo [no-]public`
-//    toggle optional:     `mulle-sde dependency mark MulleUIVideo [no-]require`
-//    remove for platform: `mulle-sde dependency mark MulleUIVideo no-platform-<uname>`
+// To remove the following dependency (headers and library) completely:
+//   `mulle-sde dependency remove MulleUIVideo`
+// (Use DAED5365-9893-4DA0-98B0-84620A9F4B94 instead of MulleUIVideo, if there are duplicate entries)
+//
+// You can tweak the following #import with these commands:
+//    remove #import      : `mulle-sde dependency mark MulleUIVideo no-header`
+//    rename              : `mulle-sde dependency|library set MulleUIVideo include whatever.h`
+//    reorder             : `mulle-sde dependency move MulleUIVideo <up|down>`
+//    toggle #import      : `mulle-sde dependency mark MulleUIVideo [no-]import`
+//    toggle public       : `mulle-sde dependency mark MulleUIVideo [no-]public`
+//    toggle optional     : `mulle-sde dependency mark MulleUIVideo [no-]require`
+//    remove for platform : `mulle-sde dependency mark MulleUIVideo no-platform-<uname>`
 //        (use `mulle-sourcetree-to-c --unames` to list known values)
 #import <MulleUIVideo/MulleUIVideo.h>   // MulleUIVideo
 
-// You can tweak the following #import with these commands.
-// (Use DDDC84E8-56A2-40AA-B515-2A8027D6B2EA instead of MulleUIControl if there are duplicate entries)
-//    remove #import: : `mulle-sde dependency mark MulleUIControl no-header`
-//    rename:              `mulle-sde dependency|library set MulleUIControl include whatever.h`
-//    reorder:             `mulle-sde dependency move MulleUIControl <up|down>`
-//    toggle #import:     `mulle-sde dependency mark MulleUIControl [no-]import`
-//    toggle public:       `mulle-sde dependency mark MulleUIControl [no-]public`
-//    toggle optional:     `mulle-sde dependency mark MulleUIControl [no-]require`
-//    remove for platform: `mulle-sde dependency mark MulleUIControl no-platform-<uname>`
+// To remove the following dependency (headers and library) completely:
+//   `mulle-sde dependency remove MulleUIWidgets`
+// (Use DDDC84E8-56A2-40AA-B515-2A8027D6B2EA instead of MulleUIWidgets, if there are duplicate entries)
+//
+// You can tweak the following #import with these commands:
+//    remove #import      : `mulle-sde dependency mark MulleUIWidgets no-header`
+//    rename              : `mulle-sde dependency|library set MulleUIWidgets include whatever.h`
+//    reorder             : `mulle-sde dependency move MulleUIWidgets <up|down>`
+//    toggle #import      : `mulle-sde dependency mark MulleUIWidgets [no-]import`
+//    toggle public       : `mulle-sde dependency mark MulleUIWidgets [no-]public`
+//    toggle optional     : `mulle-sde dependency mark MulleUIWidgets [no-]require`
+//    remove for platform : `mulle-sde dependency mark MulleUIWidgets no-platform-<uname>`
 //        (use `mulle-sourcetree-to-c --unames` to list known values)
-#import <MulleUIControl/MulleUIControl.h>   // MulleUIControl
+#import <MulleUIWidgets/MulleUIWidgets.h>   // MulleUIWidgets
 
 #ifdef __has_include
 # if __has_include( "_MulleUIVideo-include.h")

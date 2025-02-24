@@ -36,9 +36,9 @@ static void  my_tje_write_func( void* context, void* data, int size)
    lineLength = CGBitmapInfoGetLineLength( bitmapInfo);
    quality    = CGFloatProjectClamped( quality, 0, 100, 1, 3);
 
-   mulle_buffer_init_with_capacity( &buffer,
-                                    1024 + bitmapInfo.size.width * lineLength,
-                                    allocator);
+   mulle_buffer_init( &buffer,
+                      1024 + bitmapInfo.size.width * lineLength,
+                      allocator);
 
    if( ! tje_encode_with_func( my_tje_write_func,
                                &buffer,

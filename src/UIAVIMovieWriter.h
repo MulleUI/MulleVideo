@@ -56,17 +56,17 @@ enum
    UIAVIMovieMJPGCodec = 0
 };
 
-@property( assign) struct MulleIntegerSize    bitmapSize;
+@property( assign) CGPixelSize    bitmapSize;
 @property( assign) NSUInteger                 codec;
 @property( assign) CGFloat                    frameRateHz;
 
 + (instancetype) movieWithUTF8String:(char *) filename
-                          bitmapSize:(struct MulleIntegerSize) bitmapSize
+                          bitmapSize:(CGPixelSize) bitmapSize
                          frameRateHz:(CGFloat) hz
                                codec:(NSUInteger) codec;
 
 - (instancetype) initWithUTF8String:(char *) filename
-                         bitmapSize:(struct MulleIntegerSize) bitmapSize
+                         bitmapSize:(CGPixelSize) bitmapSize
                          frameRateHz:(CGFloat) hz
                               codec:(NSUInteger) codec;
 - (BOOL) close;
