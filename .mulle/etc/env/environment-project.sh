@@ -14,7 +14,7 @@ export PROJECT_SOURCE_DIR="src"
 #
 #
 #
-export PROJECT_NAME="MulleUIVideo"
+export PROJECT_NAME="MulleVideo"
 
 
 #

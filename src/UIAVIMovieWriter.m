@@ -1,6 +1,6 @@
 //
 //  UIAVIMovieWriter.m
-//  MulleUIVideo
+//  MulleVideo
 //
 //  Copyright (c) 2022 Nat! - Mulle kybernetiK.
 //  All rights reserved.
@@ -42,16 +42,20 @@
 @implementation UIAVIMovieWriter
 
 + (instancetype) movieWithUTF8String:(char *) filename
-                          bitmapSize:(CGPixelSize) bitmapSize
-                         frameRateHz:(CGFloat) frameRateHz
-                               codec:(NSUInteger) codec;
+                         bitmapSize:(CGPixelSize) bitmapSize
+                        frameRateHz:(CGFloat) frameRateHz
+                              codec:(NSUInteger) codec;
 {
-   return( [[[self alloc] initWithUTF8String:filename
-                                  bitmapSize:bitmapSize
-                                 frameRateHz:frameRateHz
-                                       codec:codec] autorelease]);
-}
+   UIAVIMovieWriter *obj;
 
+   obj = [self alloc];
+   obj = [obj initWithUTF8String:filename
+                      bitmapSize:bitmapSize
+                     frameRateHz:frameRateHz
+                           codec:codec];
+   obj = [obj autorelease];
+   return(obj);
+}
 
 - (instancetype) initWithUTF8String:(char *) filename
                          bitmapSize:(CGPixelSize) bitmapSize

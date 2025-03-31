@@ -1,6 +1,6 @@
 //
 //  UIAVIMovieWriter.m
-//  MulleUIVideo
+//  MulleVideo
 //
 //  Copyright (c) 2022 Nat! - Mulle kybernetiK.
 //  All rights reserved.

@@ -12,7 +12,7 @@
 // this is a global symbol that is exposed, which can be used to detect
 // if this library is available
 
-#define HAVE_IMPORT_MULLE_UI_VIDEO
+#define HAVE_IMPORT_MULLE_VIDEO
 
 /*
  * Get C includes first
@@ -29,7 +29,7 @@
    sourcetree, then you don't need it.
  */
 
-#import "_MulleUIVideo-import.h"
+#import "_MulleVideo-import.h"
 
 /* You can add some more import statements here */
 

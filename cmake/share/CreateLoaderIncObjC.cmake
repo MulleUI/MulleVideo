@@ -76,10 +76,10 @@ if( CREATE_OBJC_LOADER_INC)
 
    # The preferred way:
    #
-   # _1_MulleUIVideo is an object library (a collection of files).
-   # _2_MulleUIVideo is the loader with OBJC_LOADER_INC.
+   # _1_MulleVideo is an object library (a collection of files).
+   # _2_MulleVideo is the loader with OBJC_LOADER_INC.
    #
-   # Produce a static library _3_MulleUIVideo from _1_MulleUIVideo
+   # Produce a static library _3_MulleVideo from _1_MulleVideo
    # to feed into MULLE_OBJC_LOADER_TOOL.
    #
    # The static library is, so that the commandline doesn't overflow for

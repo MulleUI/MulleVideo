@@ -1,6 +1,6 @@
-# MulleUIVideo
+# MulleVideo
 
-#### 🛸 MulleUIVideo does something
+#### 🛸 MulleVideo does something
 
 It works, sometimes.
 
@@ -13,8 +13,8 @@ recursive package management with cross-platform builds via **cmake**:
 | Action  | Command                               | Description               |
 |---------|---------------------------------------|---------------------------|
 | Build   | `mulle-sde craft [--release|--debug]` | Builds into local `kitchen` folder |
-| Add     | `mulle-sde dependency add --c --github <|GITHUB_USER|> MulleUIVideo` | Add <|PROJECT_NAME|| > to another mulle-sde project as a dependency |
-| Install | `mulle-sde install --prefix /usr/local https://github.com/<|GITHUB_USER|>/MulleUIVideo.git` | Like `make install` |
+| Add     | `mulle-sde dependency add --c --github <|GITHUB_USER|> MulleVideo` | Add <|PROJECT_NAME|| > to another mulle-sde project as a dependency |
+| Install | `mulle-sde install --prefix /usr/local https://github.com/<|GITHUB_USER|>/MulleVideo.git` | Like `make install` |
 
 
 ### Manual Installation

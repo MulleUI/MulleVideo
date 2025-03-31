@@ -12,6 +12,92 @@ if( MULLE_TRACE_INCLUDE)
 endif()
 
 #
+# Generated from sourcetree: AD517930-2CA2-4D03-84B5-33F27AA47B60;MulleVideo;no-singlephase;
+# Disable with : `mulle-sourcetree mark MulleVideo no-link`
+# Disable for this platform: `mulle-sourcetree mark MulleVideo no-cmake-platform-${MULLE_UNAME}`
+# Disable for a sdk: `mulle-sourcetree mark MulleVideo no-cmake-sdk-<name>`
+#
+if( COLLECT_ALL_LOAD_DEPENDENCY_LIBRARIES_AS_NAMES)
+   list( APPEND ALL_LOAD_DEPENDENCY_LIBRARIES "MulleVideo")
+else()
+   if( NOT MULLE_VIDEO_LIBRARY)
+      find_library( MULLE_VIDEO_LIBRARY NAMES
+         ${CMAKE_STATIC_LIBRARY_PREFIX}MulleVideo${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
+         ${CMAKE_STATIC_LIBRARY_PREFIX}MulleVideo${CMAKE_STATIC_LIBRARY_SUFFIX}
+         MulleVideo
+         NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH
+      )
+      if( NOT MULLE_VIDEO_LIBRARY AND NOT DEPENDENCY_IGNORE_SYSTEM_LIBARIES)
+         find_library( MULLE_VIDEO_LIBRARY NAMES
+            ${CMAKE_STATIC_LIBRARY_PREFIX}MulleVideo${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
+            ${CMAKE_STATIC_LIBRARY_PREFIX}MulleVideo${CMAKE_STATIC_LIBRARY_SUFFIX}
+            MulleVideo
+         )
+      endif()
+      message( STATUS "MULLE_VIDEO_LIBRARY is ${MULLE_VIDEO_LIBRARY}")
+      #
+      # The order looks ascending, but due to the way this file is read
+      # it ends up being descending, which is what we need.
+      #
+      if( MULLE_VIDEO_LIBRARY)
+         #
+         # Add MULLE_VIDEO_LIBRARY to ALL_LOAD_DEPENDENCY_LIBRARIES list.
+         # Disable with: `mulle-sourcetree mark MulleVideo no-cmake-add`
+         #
+         list( APPEND ALL_LOAD_DEPENDENCY_LIBRARIES ${MULLE_VIDEO_LIBRARY})
+         #
+         # Inherit information from dependency.
+         # Encompasses: no-cmake-searchpath,no-cmake-dependency,no-cmake-loader
+         # Disable with: `mulle-sourcetree mark MulleVideo no-cmake-inherit`
+         #
+         # temporarily expand CMAKE_MODULE_PATH
+         get_filename_component( _TMP_MULLE_VIDEO_ROOT "${MULLE_VIDEO_LIBRARY}" DIRECTORY)
+         get_filename_component( _TMP_MULLE_VIDEO_ROOT "${_TMP_MULLE_VIDEO_ROOT}" DIRECTORY)
+         #
+         #
+         # Search for "Definitions.cmake" and "DependenciesAndLibraries.cmake" to include.
+         # Disable with: `mulle-sourcetree mark MulleVideo no-cmake-dependency`
+         #
+         foreach( _TMP_MULLE_VIDEO_NAME "MulleVideo")
+            set( _TMP_MULLE_VIDEO_DIR "${_TMP_MULLE_VIDEO_ROOT}/include/${_TMP_MULLE_VIDEO_NAME}/cmake")
+            # use explicit path to avoid "surprises"
+            if( IS_DIRECTORY "${_TMP_MULLE_VIDEO_DIR}")
+               list( INSERT CMAKE_MODULE_PATH 0 "${_TMP_MULLE_VIDEO_DIR}")
+               #
+               include( "${_TMP_MULLE_VIDEO_DIR}/DependenciesAndLibraries.cmake" OPTIONAL)
+               #
+               list( REMOVE_ITEM CMAKE_MODULE_PATH "${_TMP_MULLE_VIDEO_DIR}")
+               #
+               unset( MULLE_VIDEO_DEFINITIONS)
+               include( "${_TMP_MULLE_VIDEO_DIR}/Definitions.cmake" OPTIONAL)
+               list( APPEND INHERITED_DEFINITIONS ${MULLE_VIDEO_DEFINITIONS})
+               break()
+            else()
+               message( STATUS "${_TMP_MULLE_VIDEO_DIR} not found")
+            endif()
+         endforeach()
+         #
+         # Search for "MulleObjCLoader+<name>.h" in include directory.
+         # Disable with: `mulle-sourcetree mark MulleVideo no-cmake-loader`
+         #
+         if( NOT NO_INHERIT_OBJC_LOADERS)
+            foreach( _TMP_MULLE_VIDEO_NAME "MulleVideo")
+               set( _TMP_MULLE_VIDEO_FILE "${_TMP_MULLE_VIDEO_ROOT}/include/${_TMP_MULLE_VIDEO_NAME}/MulleObjCLoader+${_TMP_MULLE_VIDEO_NAME}.h")
+               if( EXISTS "${_TMP_MULLE_VIDEO_FILE}")
+                  list( APPEND INHERITED_OBJC_LOADERS ${_TMP_MULLE_VIDEO_FILE})
+                  break()
+               endif()
+            endforeach()
+         endif()
+      else()
+         # Disable with: `mulle-sourcetree mark MulleVideo no-require-link`
+         message( SEND_ERROR "MULLE_VIDEO_LIBRARY was not found")
+      endif()
+   endif()
+endif()
+
+
+#
 # Generated from sourcetree: 5C389F3C-C392-4C0E-A616-0CE162C25BFB;MulleUI;no-singlephase;
 # Disable with : `mulle-sourcetree mark MulleUI no-link`
 # Disable for this platform: `mulle-sourcetree mark MulleUI no-cmake-platform-${MULLE_UNAME}`
@@ -92,92 +178,6 @@ else()
       else()
          # Disable with: `mulle-sourcetree mark MulleUI no-require-link`
          message( SEND_ERROR "MULLE_UI_LIBRARY was not found")
-      endif()
-   endif()
-endif()
-
-
-#
-# Generated from sourcetree: DAED5365-9893-4DA0-98B0-84620A9F4B94;MulleUIVideo;no-singlephase;
-# Disable with : `mulle-sourcetree mark MulleUIVideo no-link`
-# Disable for this platform: `mulle-sourcetree mark MulleUIVideo no-cmake-platform-${MULLE_UNAME}`
-# Disable for a sdk: `mulle-sourcetree mark MulleUIVideo no-cmake-sdk-<name>`
-#
-if( COLLECT_ALL_LOAD_DEPENDENCY_LIBRARIES_AS_NAMES)
-   list( APPEND ALL_LOAD_DEPENDENCY_LIBRARIES "MulleUIVideo")
-else()
-   if( NOT MULLE_UI_VIDEO_LIBRARY)
-      find_library( MULLE_UI_VIDEO_LIBRARY NAMES
-         ${CMAKE_STATIC_LIBRARY_PREFIX}MulleUIVideo${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
-         ${CMAKE_STATIC_LIBRARY_PREFIX}MulleUIVideo${CMAKE_STATIC_LIBRARY_SUFFIX}
-         MulleUIVideo
-         NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH
-      )
-      if( NOT MULLE_UI_VIDEO_LIBRARY AND NOT DEPENDENCY_IGNORE_SYSTEM_LIBARIES)
-         find_library( MULLE_UI_VIDEO_LIBRARY NAMES
-            ${CMAKE_STATIC_LIBRARY_PREFIX}MulleUIVideo${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
-            ${CMAKE_STATIC_LIBRARY_PREFIX}MulleUIVideo${CMAKE_STATIC_LIBRARY_SUFFIX}
-            MulleUIVideo
-         )
-      endif()
-      message( STATUS "MULLE_UI_VIDEO_LIBRARY is ${MULLE_UI_VIDEO_LIBRARY}")
-      #
-      # The order looks ascending, but due to the way this file is read
-      # it ends up being descending, which is what we need.
-      #
-      if( MULLE_UI_VIDEO_LIBRARY)
-         #
-         # Add MULLE_UI_VIDEO_LIBRARY to ALL_LOAD_DEPENDENCY_LIBRARIES list.
-         # Disable with: `mulle-sourcetree mark MulleUIVideo no-cmake-add`
-         #
-         list( APPEND ALL_LOAD_DEPENDENCY_LIBRARIES ${MULLE_UI_VIDEO_LIBRARY})
-         #
-         # Inherit information from dependency.
-         # Encompasses: no-cmake-searchpath,no-cmake-dependency,no-cmake-loader
-         # Disable with: `mulle-sourcetree mark MulleUIVideo no-cmake-inherit`
-         #
-         # temporarily expand CMAKE_MODULE_PATH
-         get_filename_component( _TMP_MULLE_UI_VIDEO_ROOT "${MULLE_UI_VIDEO_LIBRARY}" DIRECTORY)
-         get_filename_component( _TMP_MULLE_UI_VIDEO_ROOT "${_TMP_MULLE_UI_VIDEO_ROOT}" DIRECTORY)
-         #
-         #
-         # Search for "Definitions.cmake" and "DependenciesAndLibraries.cmake" to include.
-         # Disable with: `mulle-sourcetree mark MulleUIVideo no-cmake-dependency`
-         #
-         foreach( _TMP_MULLE_UI_VIDEO_NAME "MulleUIVideo")
-            set( _TMP_MULLE_UI_VIDEO_DIR "${_TMP_MULLE_UI_VIDEO_ROOT}/include/${_TMP_MULLE_UI_VIDEO_NAME}/cmake")
-            # use explicit path to avoid "surprises"
-            if( IS_DIRECTORY "${_TMP_MULLE_UI_VIDEO_DIR}")
-               list( INSERT CMAKE_MODULE_PATH 0 "${_TMP_MULLE_UI_VIDEO_DIR}")
-               #
-               include( "${_TMP_MULLE_UI_VIDEO_DIR}/DependenciesAndLibraries.cmake" OPTIONAL)
-               #
-               list( REMOVE_ITEM CMAKE_MODULE_PATH "${_TMP_MULLE_UI_VIDEO_DIR}")
-               #
-               unset( MULLE_UI_VIDEO_DEFINITIONS)
-               include( "${_TMP_MULLE_UI_VIDEO_DIR}/Definitions.cmake" OPTIONAL)
-               list( APPEND INHERITED_DEFINITIONS ${MULLE_UI_VIDEO_DEFINITIONS})
-               break()
-            else()
-               message( STATUS "${_TMP_MULLE_UI_VIDEO_DIR} not found")
-            endif()
-         endforeach()
-         #
-         # Search for "MulleObjCLoader+<name>.h" in include directory.
-         # Disable with: `mulle-sourcetree mark MulleUIVideo no-cmake-loader`
-         #
-         if( NOT NO_INHERIT_OBJC_LOADERS)
-            foreach( _TMP_MULLE_UI_VIDEO_NAME "MulleUIVideo")
-               set( _TMP_MULLE_UI_VIDEO_FILE "${_TMP_MULLE_UI_VIDEO_ROOT}/include/${_TMP_MULLE_UI_VIDEO_NAME}/MulleObjCLoader+${_TMP_MULLE_UI_VIDEO_NAME}.h")
-               if( EXISTS "${_TMP_MULLE_UI_VIDEO_FILE}")
-                  list( APPEND INHERITED_OBJC_LOADERS ${_TMP_MULLE_UI_VIDEO_FILE})
-                  break()
-               endif()
-            endforeach()
-         endif()
-      else()
-         # Disable with: `mulle-sourcetree mark MulleUIVideo no-require-link`
-         message( SEND_ERROR "MULLE_UI_VIDEO_LIBRARY was not found")
       endif()
    endif()
 endif()

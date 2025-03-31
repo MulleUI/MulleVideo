@@ -201,7 +201,7 @@ int   main( int argc, char *argv[])
                                    frameRateHz:60.0
                                          codec:UIAVIMovieMJPGCodec];
    [window setUserInfo:avi];
-   [window setDidDrawCallback:didDraw];
+   [window setDidDrawViewsCallback:didDraw];
 
    return( [app runWindow:window]);
 }

@@ -11,17 +11,17 @@ endif()
 # contents are derived from the file locations
 
 set( INCLUDE_DIRS
-src
-src/generic
 src/reflect
+src/generic
+src
 )
 
 #
 # contents selected with patternfile ??-header--private-generated-headers
 #
 set( PRIVATE_GENERATED_HEADERS
-src/reflect/_MulleUIVideo-import-private.h
-src/reflect/_MulleUIVideo-include-private.h
+src/reflect/_MulleVideo-import-private.h
+src/reflect/_MulleVideo-include-private.h
 )
 
 #
@@ -36,10 +36,10 @@ src/generic/include-private.h
 # contents selected with patternfile ??-header--public-generated-headers
 #
 set( PUBLIC_GENERATED_HEADERS
-src/reflect/_MulleUIVideo-export.h
-src/reflect/_MulleUIVideo-import.h
-src/reflect/_MulleUIVideo-include.h
-src/reflect/_MulleUIVideo-provide.h
+src/reflect/_MulleVideo-export.h
+src/reflect/_MulleVideo-import.h
+src/reflect/_MulleVideo-include.h
+src/reflect/_MulleVideo-provide.h
 )
 
 #
@@ -54,9 +54,9 @@ src/generic/include.h
 # contents selected with patternfile ??-header--public-headers
 #
 set( PUBLIC_HEADERS
-src/MulleUIVideo.h
+src/MulleVideo.h
 src/UIAVIMovieWriter.h
 src/UIBitmapImage+JPGEncoder.h
-src/generic/MulleObjCLoader+MulleUIVideo.h
+src/generic/MulleObjCLoader+MulleVideo.h
 )
 
