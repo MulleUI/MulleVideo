@@ -41,26 +41,26 @@
 
 @implementation UIAVIMovieWriter
 
-+ (instancetype) movieWithUTF8String:(char *) filename
-                         bitmapSize:(CGPixelSize) bitmapSize
-                        frameRateHz:(CGFloat) frameRateHz
-                              codec:(NSUInteger) codec;
++ (instancetype) movieWithFileUTF8String:(char *) filename
+                              bitmapSize:(CGPixelSize) bitmapSize
+                             frameRateHz:(CGFloat) frameRateHz
+                                   codec:(NSUInteger) codec;
 {
    UIAVIMovieWriter *obj;
 
    obj = [self alloc];
-   obj = [obj initWithUTF8String:filename
-                      bitmapSize:bitmapSize
-                     frameRateHz:frameRateHz
-                           codec:codec];
+   obj = [obj initWithFileUTF8String:filename
+                          bitmapSize:bitmapSize
+                         frameRateHz:frameRateHz
+                               codec:codec];
    obj = [obj autorelease];
    return(obj);
 }
 
-- (instancetype) initWithUTF8String:(char *) filename
-                         bitmapSize:(CGPixelSize) bitmapSize
-                        frameRateHz:(CGFloat) frameRateHz
-                              codec:(NSUInteger) codec
+- (instancetype) initWithFileUTF8String:(char *) filename
+                             bitmapSize:(CGPixelSize) bitmapSize
+                            frameRateHz:(CGFloat) frameRateHz
+                                  codec:(NSUInteger) codec
 {
    struct gwavi_t  *gwavi;
    auto char       fourcc[ 5] = { 'M', 'J', 'P', 'G', 0 };
@@ -140,10 +140,10 @@
 
 - (BOOL) addBitmapImage:(UIBitmapImage *) image
 {
-   struct CGBitmapInfo       aviInfo;
-   BOOL                      rval = 0;
-   UIBitmapImage             *scaled;
-   struct mulle_data         data;
+   struct CGBitmapInfo   aviInfo;
+   BOOL                  rval = 0;
+   UIBitmapImage         *scaled;
+   struct mulle_data     data;
 
    aviInfo = [self bitmapInfo];
    // produce a scaled image in RGBA format if needed

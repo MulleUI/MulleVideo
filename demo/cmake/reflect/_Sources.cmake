@@ -11,5 +11,6 @@ endif()
 # contents selected with patternfile ??-source--sources
 #
 set( SOURCES
+src/main-write-movie2.m
 src/main-write-movie.m
 )

@@ -46,7 +46,7 @@
 #include <stdint.h>
 
 
-@interface UIAVIMovieWriter : NSObject
+@interface UIAVIMovieWriter : MulleObject < MulleObjCThreadSafe>
 {
    struct gwavi_t   *_gwavi;
 }
@@ -56,19 +56,19 @@ enum
    UIAVIMovieMJPGCodec = 0
 };
 
-@property( assign) CGPixelSize    bitmapSize;
-@property( assign) NSUInteger                 codec;
-@property( assign) CGFloat                    frameRateHz;
+@property( assign) CGPixelSize   bitmapSize;
+@property( assign) NSUInteger    codec;
+@property( assign) CGFloat       frameRateHz;
 
-+ (instancetype) movieWithUTF8String:(char *) filename
-                          bitmapSize:(CGPixelSize) bitmapSize
-                         frameRateHz:(CGFloat) hz
-                               codec:(NSUInteger) codec;
++ (instancetype) movieWithFileUTF8String:(char *) filename
+                              bitmapSize:(CGPixelSize) bitmapSize
+                             frameRateHz:(CGFloat) hz
+                                   codec:(NSUInteger) codec;
 
-- (instancetype) initWithUTF8String:(char *) filename
-                         bitmapSize:(CGPixelSize) bitmapSize
-                         frameRateHz:(CGFloat) hz
-                              codec:(NSUInteger) codec;
+- (instancetype) initWithFileUTF8String:(char *) filename
+                             bitmapSize:(CGPixelSize) bitmapSize
+                            frameRateHz:(CGFloat) hz
+                                  codec:(NSUInteger) codec;
 - (BOOL) close;
 
 - (BOOL) addBitmap:(struct CGBitmap) bitmap
