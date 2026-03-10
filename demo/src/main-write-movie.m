@@ -66,8 +66,8 @@ int   main( int argc, char *argv[])
 
    app       = [UIApplication sharedInstance];
    styleMask = UIWindowStyleMaskDefault;
-   styleMask = UIWindowsStyleMaskBySetting( styleMask, UIWindowStyleRetained, NO);
-   styleMask = UIWindowsStyleMaskBySetting( styleMask, UIWindowStyleHidden, YES);
+   styleMask = UIWindowStyleMaskBySetting( styleMask, UIWindowStyleRetained, NO);
+   styleMask = UIWindowStyleMaskBySetting( styleMask, UIWindowStyleHidden, YES);
    window    = [UIWindow windowWithFrame:CGRectMake( 0.0, 0.0, 720.0, 400.0)
                          titleUTF8String:"Demo"
                                styleMask:styleMask];

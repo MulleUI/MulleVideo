@@ -57,6 +57,6 @@ set( PUBLIC_HEADERS
 src/MulleVideo.h
 src/UIAVIMovieWriter.h
 src/UIBitmapImage+JPGEncoder.h
-src/generic/MulleObjCLoader+MulleVideo.h
+src/generic/MulleObjCDeps+MulleVideo.h
 )
 

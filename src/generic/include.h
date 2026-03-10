@@ -31,13 +31,15 @@
 #include "_MulleVideo-include.h"
 
 #ifdef MULLE_VIDEO_BUILD
-# define MULLE_VIDEO_GLOBAL    MULLE_C_GLOBAL
+# define MULLE_VIDEO_GLOBAL        MULLE_C_GLOBAL
+# define MULLE_VIDEO_GLOBAL_VAR    MULLE_C_GLOBAL_VAR
 #else
 # if defined( MULLE_VIDEO_INCLUDE_DYNAMIC) || (defined( MULLE_INCLUDE_DYNAMIC) && ! defined( MULLE_VIDEO_INCLUDE_STATIC))
-#  define MULLE_VIDEO_GLOBAL   MULLE_C_GLOBAL
+#  define MULLE_VIDEO_GLOBAL       MULLE_C_EXTERN_GLOBAL
 # else
-#  define MULLE_VIDEO_GLOBAL   extern
+#  define MULLE_VIDEO_GLOBAL       extern
 # endif
+# define MULLE_VIDEO_GLOBAL_VAR
 #endif
 
 /* You can add some more include statements here */

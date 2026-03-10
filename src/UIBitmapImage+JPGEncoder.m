@@ -5,6 +5,10 @@
 
 #import "import-private.h"
 
+#ifndef MULLE_BOOL_DEFINED
+# error "you need to include <mulle-c11/mulle-c11-bool.h> before including <tiny-jpeg.h>"
+#endif
+
 #define TJE_IMPLEMENTATION
 #include "tiny-jpeg.h"
 
