@@ -19,7 +19,7 @@
 //    remove #import      : `mulle-sde dependency mark MulleVideo no-header`
 //    rename              : `mulle-sde dependency|library set MulleVideo include whatever.h`
 //    reorder             : `mulle-sde dependency move MulleVideo <up|down>`
-//    toggle #import      : `mulle-sde dependency mark MulleVideo [no-]import`
+//    toggle objc         : `mulle-sde dependency mark MulleVideo [no-]import`
 //    toggle public       : `mulle-sde dependency mark MulleVideo [no-]public`
 //    toggle optional     : `mulle-sde dependency mark MulleVideo [no-]require`
 //    remove for platform : `mulle-sde dependency mark MulleVideo no-platform-<uname>`
@@ -34,7 +34,7 @@
 //    remove #import      : `mulle-sde dependency mark MulleUI no-header`
 //    rename              : `mulle-sde dependency|library set MulleUI include whatever.h`
 //    reorder             : `mulle-sde dependency move MulleUI <up|down>`
-//    toggle #import      : `mulle-sde dependency mark MulleUI [no-]import`
+//    toggle objc         : `mulle-sde dependency mark MulleUI [no-]import`
 //    toggle public       : `mulle-sde dependency mark MulleUI [no-]public`
 //    toggle optional     : `mulle-sde dependency mark MulleUI [no-]require`
 //    remove for platform : `mulle-sde dependency mark MulleUI no-platform-<uname>`
@@ -49,7 +49,7 @@
 //    remove #import      : `mulle-sde dependency mark MulleUIWidgets no-header`
 //    rename              : `mulle-sde dependency|library set MulleUIWidgets include whatever.h`
 //    reorder             : `mulle-sde dependency move MulleUIWidgets <up|down>`
-//    toggle #import      : `mulle-sde dependency mark MulleUIWidgets [no-]import`
+//    toggle objc         : `mulle-sde dependency mark MulleUIWidgets [no-]import`
 //    toggle public       : `mulle-sde dependency mark MulleUIWidgets [no-]public`
 //    toggle optional     : `mulle-sde dependency mark MulleUIWidgets [no-]require`
 //    remove for platform : `mulle-sde dependency mark MulleUIWidgets no-platform-<uname>`

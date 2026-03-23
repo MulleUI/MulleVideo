@@ -13,8 +13,6 @@
 */
 
 #define RECORD_AVI
-
-
 #ifdef LEAK_CHECK
 # define RECORD_FRAMECOUNT  1
 #else
@@ -22,23 +20,17 @@
 #endif
 
 #include "stars-draw.inc"
-
-
 static BOOL   draw( CGGraphicsLayer *layer, CGContext *context)
 {
    CGRect       canvas;
    NSUInteger   frameCount;
-   NVGcontext   *vg;
 
-   vg         = CGContextGetNVGContext( context);
    canvas     = [layer canvas];
    frameCount = [context numberOfFrames];
 
-   drawStars( vg, canvas, frameCount);
+   drawStars( context, canvas, frameCount);
    return( YES);
 }
-
-
 static void  didDraw( UIWindow *window,
                       id <UIGraphicsContext> graphicsContext,
                       struct CGFrameInfo *info)
@@ -93,8 +85,6 @@ static void  didDraw( UIWindow *window,
    [queue addInvocation:invocation];
    fprintf( stderr, "write %td\n", frameCount);
 }
-
-
 int   main( int argc, char *argv[])
 {
    UIWindow           *window;
@@ -119,8 +109,6 @@ int   main( int argc, char *argv[])
 
    return( [app runWindow:window]);
 }
-
-
 
 //
 //                           ,╓≤æKª╨╙╙▓█D"╙╙╙*╨¥W▄╓,

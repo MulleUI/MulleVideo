@@ -22,7 +22,7 @@
 //    remove #include: `mulle-sde dependency mark mulle-testallocator no-header`
 //    rename              : `mulle-sde dependency|library set mulle-testallocator include whatever.h`
 //    reorder             : `mulle-sde dependency move mulle-testallocator <up|down>`
-//    toggle #include: `mulle-sde dependency mark mulle-testallocator [no-]import`
+//    toggle objc         : `mulle-sde dependency mark mulle-testallocator [no-]import`
 //    toggle public       : `mulle-sde dependency mark mulle-testallocator [no-]public`
 //    toggle optional     : `mulle-sde dependency mark mulle-testallocator [no-]require`
 //    remove for platform : `mulle-sde dependency mark mulle-testallocator no-platform-<uname>`

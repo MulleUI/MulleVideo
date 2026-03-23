@@ -13,33 +13,23 @@
 */
 
 #define RECORD_AVI
-
-
 #ifdef LEAK_CHECK
 # define RECORD_FRAMECOUNT  1
 #else
 # define RECORD_FRAMECOUNT  120
 #endif
-
-
 #include "stars-draw.inc"
-
-
 static void  writeFrames( id <UIGraphicsContext> graphicsContext, struct CGFrameInfo *info, UIAVIMovieWriter *avi)
 {
    CGContext         *context = MULLE_OBJC_CLASS_CAST( CGContext, graphicsContext);
    struct CGBitmap   screenshotBitmap;
    NSUInteger        frameCount;
-   NVGcontext        *vg;
-
-   vg = CGContextGetNVGContext( context);
-
    for( frameCount = 0; frameCount < RECORD_FRAMECOUNT; frameCount++)
    {
       [context beginRender:info];
       {
          [context clearFramebuffer];
-         drawStars( vg, CGFrameInfoGetContentRect( info), frameCount);
+         drawStars( context, CGFrameInfoGetContentRect( info), frameCount);
 
          [context flushRender];
          screenshotBitmap = [context framebufferBitmap];
@@ -53,8 +43,6 @@ static void  writeFrames( id <UIGraphicsContext> graphicsContext, struct CGFrame
    MulleUICLog( "close");
    [avi close];
 }
-
-
 int   main( int argc, char *argv[])
 {
    UIWindow                *window;
@@ -73,8 +61,6 @@ int   main( int argc, char *argv[])
                                styleMask:styleMask];
 
    [window setBackgroundColor:CGColorMakeWithGrayByte( 102)];
-
-
    avi = [UIAVIMovieWriter movieWithFileUTF8String:"stars.avi"
                                         bitmapSize:CGPixelSizeMake( 360, 200)
                                        frameRateHz:60.0
@@ -91,8 +77,6 @@ int   main( int argc, char *argv[])
    [app requestTerminate];
    return( 0);
 }
-
-
 
 //
 //                           ,╓≤æKª╨╙╙▓█D"╙╙╙*╨¥W▄╓,

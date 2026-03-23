@@ -5,7 +5,7 @@
  * into the star() function calls within draw() to explore.
  */
 
-static void   starPath( NVGcontext *vg, CGFloat x, CGFloat y,
+static void   starPath( CGContext *context, CGFloat x, CGFloat y,
                                         CGFloat radius1, CGFloat radius2,
                                         NSUInteger npoints)
 {
@@ -18,22 +18,22 @@ static void   starPath( NVGcontext *vg, CGFloat x, CGFloat y,
    halfAngle = M_PI / npoints;
    angle     = halfAngle * 2.0f;
 
-   nvgBeginPath( vg);
+   CGContextBeginPath( context);
    for( a = 0; a < M_PI * 2.0f; a += angle)
    {
       sx = x + cosf( a) * radius2;
       sy = y + sinf( a) * radius2;
 
       if( a == 0.0)
-         nvgMoveTo( vg, sx, sy);
+         CGContextMoveTo( context, CGPointMake( sx, sy));
       else
-         nvgLineTo( vg, sx, sy);
+         CGContextLineTo( context, CGPointMake( sx, sy));
 
       sx = x + cosf(a + halfAngle) * radius1;
       sy = y + sinf(a + halfAngle) * radius1;
-      nvgLineTo( vg, sx, sy);
+      CGContextLineTo( context, CGPointMake( sx, sy));
   }
-  nvgClosePath( vg);
+  CGContextClosePath( context);
 }
 
 // the three pronged star, we need only a rotation
@@ -56,42 +56,42 @@ static CGFloat  rotation( NSUInteger frameCount, CGFloat divisor)
 }
 
 
-static void   drawStars( NVGcontext *vg, CGRect canvas, NSUInteger frameCount)
+static void   drawStars( CGContext *context, CGRect canvas, NSUInteger frameCount)
 {
-   nvgSave( vg);
+   CGContextSave( context);
    {
-      nvgTranslate( vg, canvas.size.width * 0.2, canvas.size.height * 0.5);
-      nvgRotate( vg, rotation( frameCount, 200.0));
-      starPath( vg, 0, 0, 5, 70, 3);
-      nvgStrokeColor( vg, CGColorMakeWithGrayByte( 0));
-      nvgStroke( vg);
-      nvgFillColor( vg, CGColorMakeWithGrayByte( 160));
-      nvgFill( vg);
+      CGContextTranslate( context, CGPointMake( canvas.size.width * 0.2, canvas.size.height * 0.5));
+      CGContextRotate( context, rotation( frameCount, 200.0));
+      starPath( context, 0, 0, 5, 70, 3);
+      CGContextStrokeColor( context, CGColorMakeWithGrayByte( 0));
+      CGContextStroke( context);
+      CGContextFillColor( context, CGColorMakeWithGrayByte( 160));
+      CGContextFill( context);
    }
-   nvgRestore( vg);
+   CGContextRestore( context);
 
-   nvgSave( vg);
+   CGContextSave( context);
    {
-      nvgTranslate( vg, canvas.size.width * 0.5, canvas.size.height * 0.5);
-      nvgRotate( vg, rotation( frameCount, 50.0));
-      starPath( vg, 0, 0, 80, 100, 40);
-      nvgStrokeColor( vg, CGColorMakeWithGrayByte( 0));
-      nvgStroke( vg);
-      nvgFillColor( vg, CGColorMakeWithGrayByte( 160));
-      nvgFill( vg);
+      CGContextTranslate( context, CGPointMake( canvas.size.width * 0.5, canvas.size.height * 0.5));
+      CGContextRotate( context, rotation( frameCount, 50.0));
+      starPath( context, 0, 0, 80, 100, 40);
+      CGContextStrokeColor( context, CGColorMakeWithGrayByte( 0));
+      CGContextStroke( context);
+      CGContextFillColor( context, CGColorMakeWithGrayByte( 160));
+      CGContextFill( context);
    }
-   nvgRestore( vg);
+   CGContextRestore( context);
 
-   nvgSave( vg);
+   CGContextSave( context);
    {
-      nvgTranslate( vg, canvas.size.width * 0.8, canvas.size.height * 0.5);
-      nvgRotate( vg, rotation( frameCount, -200.0 * 3 / 5));
-      starPath( vg, 0, 0, 30, 70, 5);
-      nvgStrokeColor( vg, CGColorMakeWithGrayByte( 0));
-      nvgStroke( vg);
-      nvgFillColor( vg, CGColorMakeWithGrayByte( 160));
-      nvgFill( vg);
+      CGContextTranslate( context, CGPointMake( canvas.size.width * 0.8, canvas.size.height * 0.5));
+      CGContextRotate( context, rotation( frameCount, -200.0 * 3 / 5));
+      starPath( context, 0, 0, 30, 70, 5);
+      CGContextStrokeColor( context, CGColorMakeWithGrayByte( 0));
+      CGContextStroke( context);
+      CGContextFillColor( context, CGColorMakeWithGrayByte( 160));
+      CGContextFill( context);
    }
-   nvgRestore( vg);
+   CGContextRestore( context);
 }
 
