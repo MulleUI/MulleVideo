@@ -12,6 +12,21 @@
  */
 
 // To remove the following dependency (headers and library) completely:
+//   `mulle-sde dependency remove MulleUIOS`
+// (Use B41BBE3F-63CA-4654-BDB5-C925E4EC74CA instead of MulleUIOS, if there are duplicate entries)
+//
+// You can tweak the following #import with these commands:
+//    remove #import      : `mulle-sde dependency mark MulleUIOS no-header`
+//    rename              : `mulle-sde dependency|library set MulleUIOS include whatever.h`
+//    reorder             : `mulle-sde dependency move MulleUIOS <up|down>`
+//    toggle objc         : `mulle-sde dependency mark MulleUIOS [no-]import`
+//    toggle public       : `mulle-sde dependency mark MulleUIOS [no-]public`
+//    toggle optional     : `mulle-sde dependency mark MulleUIOS [no-]require`
+//    remove for platform : `mulle-sde dependency mark MulleUIOS no-platform-<uname>`
+//        (use `mulle-sourcetree-to-c --unames` to list known values)
+#import <MulleUIOS/MulleUIOS.h>   // MulleUIOS
+
+// To remove the following dependency (headers and library) completely:
 //   `mulle-sde dependency remove MulleVideo`
 // (Use AD517930-2CA2-4D03-84B5-33F27AA47B60 instead of MulleVideo, if there are duplicate entries)
 //
@@ -27,34 +42,19 @@
 #import <MulleVideo/MulleVideo.h>   // MulleVideo
 
 // To remove the following dependency (headers and library) completely:
-//   `mulle-sde dependency remove MulleUI`
-// (Use 5C389F3C-C392-4C0E-A616-0CE162C25BFB instead of MulleUI, if there are duplicate entries)
+//   `mulle-sde dependency remove MulleUIWidget`
+// (Use 82095523-D29B-424A-8389-8EDEA7B68545 instead of MulleUIWidget, if there are duplicate entries)
 //
 // You can tweak the following #import with these commands:
-//    remove #import      : `mulle-sde dependency mark MulleUI no-header`
-//    rename              : `mulle-sde dependency|library set MulleUI include whatever.h`
-//    reorder             : `mulle-sde dependency move MulleUI <up|down>`
-//    toggle objc         : `mulle-sde dependency mark MulleUI [no-]import`
-//    toggle public       : `mulle-sde dependency mark MulleUI [no-]public`
-//    toggle optional     : `mulle-sde dependency mark MulleUI [no-]require`
-//    remove for platform : `mulle-sde dependency mark MulleUI no-platform-<uname>`
+//    remove #import      : `mulle-sde dependency mark MulleUIWidget no-header`
+//    rename              : `mulle-sde dependency|library set MulleUIWidget include whatever.h`
+//    reorder             : `mulle-sde dependency move MulleUIWidget <up|down>`
+//    toggle objc         : `mulle-sde dependency mark MulleUIWidget [no-]import`
+//    toggle public       : `mulle-sde dependency mark MulleUIWidget [no-]public`
+//    toggle optional     : `mulle-sde dependency mark MulleUIWidget [no-]require`
+//    remove for platform : `mulle-sde dependency mark MulleUIWidget no-platform-<uname>`
 //        (use `mulle-sourcetree-to-c --unames` to list known values)
-#import <MulleUI/MulleUI.h>   // MulleUI
-
-// To remove the following dependency (headers and library) completely:
-//   `mulle-sde dependency remove MulleUIWidgets`
-// (Use DDDC84E8-56A2-40AA-B515-2A8027D6B2EA instead of MulleUIWidgets, if there are duplicate entries)
-//
-// You can tweak the following #import with these commands:
-//    remove #import      : `mulle-sde dependency mark MulleUIWidgets no-header`
-//    rename              : `mulle-sde dependency|library set MulleUIWidgets include whatever.h`
-//    reorder             : `mulle-sde dependency move MulleUIWidgets <up|down>`
-//    toggle objc         : `mulle-sde dependency mark MulleUIWidgets [no-]import`
-//    toggle public       : `mulle-sde dependency mark MulleUIWidgets [no-]public`
-//    toggle optional     : `mulle-sde dependency mark MulleUIWidgets [no-]require`
-//    remove for platform : `mulle-sde dependency mark MulleUIWidgets no-platform-<uname>`
-//        (use `mulle-sourcetree-to-c --unames` to list known values)
-#import <MulleUIWidgets/MulleUIWidgets.h>   // MulleUIWidgets
+#import <MulleUIWidget/MulleUIWidget.h>   // MulleUIWidget
 
 #ifdef __has_include
 # if __has_include( "_MulleUIVideo-include.h")
