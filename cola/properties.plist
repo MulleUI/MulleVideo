@@ -1,0 +1,51 @@
+{
+   project =
+   {
+      description="🛸 MulleVideo does something";
+      domain="github";
+      language="c";
+      dialect="objc";
+      name="MulleVideo";
+      user="MulleUI";
+      repo="MulleVideo";
+      homepage="https://github.com/MulleUI/MulleVideo";
+      license="BSD-3-Clause";
+   };
+   dependencies =
+   (
+      {
+         description="Even though you can already generate AVI files, this library has not reached a";
+         domain="github";
+         name="libgwavi";
+         repo="libgwavi";
+         url="https://github.com/MulleUI/libgwavi";
+         user="MulleUI";
+      },
+      {
+         description="📸 MulleImage defines UIImage and provides some image file formats";
+         domain="github";
+         name="MulleImage";
+         repo="MulleImage";
+         url="https://github.com/MulleUI/MulleImage";
+         user="MulleUI";
+      },
+      {
+         description="📒 Lists mulle-objc runtime information contained in executables.";
+         domain="github";
+         name="mulle-objc-list";
+         repo="mulle-objc-list";
+         url="https://github.com/mulle-objc/mulle-objc-list";
+         user="mulle-objc";
+      }
+   );
+   embedded =
+   (
+      {
+         domain="github";
+         name="src/tiny-jpeg.h";
+         repo="TinyJPEG";
+         url="https://raw.githubusercontent.com/serge-rgb/TinyJPEG";
+         user="serge-rgb";
+      }
+   );
+}
