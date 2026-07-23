@@ -3,8 +3,9 @@
 
 ## `UIAVIMovieWriter`
 
-- `initWithFileUTF8String:bitmapSize:frameRateHz:codec:` asserts positive width, height, and FPS in `src/UIAVIMovieWriter.m`. Do not feed `0` sizes or a zero frame rate.
+- `initWithFileUTF8String:bitmapSize:frameRateHz:codec:` asserts positive width (≥1), height (≥1), and FPS (>0) in `src/UIAVIMovieWriter.m`. Do not feed `0` sizes or a zero frame rate.
 - `frameRateHz` is stored as a `CGFloat` on the Objective-C side but passed to `gwavi_open` as `round( frameRateHz)`. Fractional rates are effectively rounded to whole FPS.
+- The internal `bitmapInfo` is always `CGBitmapEncodingRGBABytes` with line length `width * 4`. All frames are converted to this layout.
 - `UIAVIMovieMJPGCodec` (`0`) means "use the built-in `MJPG` fourcc". Non-zero codec values are treated as raw fourcc bytes; that path is not demonstrated anywhere in this repo.
 - `addBitmapImage:` always converts the image to the writer's RGBA `bitmapInfo` before JPEG encoding. Mismatched source size or format is allowed, but it costs a conversion/scale step.
 - The class is marked `MulleObjCThreadSafe`, but the demos still serialize writes through one queue. Treat one movie writer as a single ordered stream.
@@ -14,7 +15,7 @@
 
 - The header is the trustworthy ownership rule: the returned `struct mulle_data` must be freed by the caller.
 - `JPGCDataWithQuality:allocator:` projects `0..100` onto TinyJPEG quality levels `1..3` with `CGFloatProjectClamped`. Quality is coarse, not a continuous slider.
-- The encoder path uses the image's current bitmap bytes. If `[self bytes]` is `NULL`, the method returns invalid data instead of silently inventing a conversion.
+- The encoder path uses the image's current bitmap bytes. If `[self bytes]` is `NULL`, the method returns `mulle_data_make_invalid()` instead of silently inventing a conversion.
 - The implementation always encodes with `4` components when it calls TinyJPEG, so the category assumes bitmap data that is already compatible with the repo's RGBA-oriented path.
 
 ## `tiny-jpeg.h`

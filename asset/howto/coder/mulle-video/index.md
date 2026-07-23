@@ -6,11 +6,12 @@ Use this bundle when you touch the repo's exported video-writing surface. The us
 ## Understand first
 
 ```bash
-mulle-sde api list
-mulle-sde code search UIAVIMovieWriter
-mulle-sde code search JPGCDataWithQuality
-mulle-sde code grep "addBitmap:freeWhenDone:"
-mulle-sde code grep "TJE_IMPLEMENTATION"
+mulle-sde api apropos UIAVIMovieWriter
+mulle-sde api cat UIAVIMovieWriter
+mulle-sde api apropos JPGCData
+mulle-sde code search "addBitmap:freeWhenDone:"
+mulle-sde code search "TJE_IMPLEMENTATION"
+mulle-sde code search "gwavi_open"
 ```
 
 ## Local references

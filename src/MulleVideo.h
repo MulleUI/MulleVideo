@@ -1,3 +1,5 @@
+#define MULLE_VIDEO_VERSION  ((0 << 20) | (0 << 8) | 1)
+
 #ifdef __has_include
 # if __has_include( "NSObject.h")
 #  import "NSObject.h"
