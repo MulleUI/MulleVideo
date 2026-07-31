@@ -1,5 +1,5 @@
 # MulleVideo Library Documentation for AI
-<!-- Keywords: video, AVI, MJPEG, encoder, image, UIKit -->
+<!-- Keywords: video, AVI, MJPEG, encoder, Objective-C, MulleUI -->
 
 ## 1. Introduction & Purpose
 
@@ -93,7 +93,15 @@ enum
 ```
 Currently the only supported codec is MJPEG (value 0).
 
-### 3.2. `UIBitmapImage+JPGEncoder.h`
+### 3.2. `MulleVideo.h` (Umbrella Header)
+
+#### Macro
+```c
+#define MULLE_VIDEO_VERSION  ((0 << 20) | (0 << 8) | 1)
+```
+Version identifier for compile-time API checks. Encoded as `(MAJOR << 20) | (MINOR << 8) | PATCH`.
+
+### 3.3. `UIBitmapImage+JPGEncoder.h`
 
 #### `@interface UIBitmapImage (JPGEncoder)`
 
@@ -112,7 +120,7 @@ Encodes the bitmap image to JPEG format with default quality (75%). Returns a `m
 ```
 Encodes the bitmap image to JPEG with specified quality and allocator. Quality ranges from 0-100 and is mapped to TinyJPEG quality levels (1-3). If `allocator` is `NULL`, uses the default allocator. Returns a `mulle_data` structure. The caller must free the returned data.
 
-### 3.3. `tiny-jpeg.h` (Third-party Library)
+### 3.4. `tiny-jpeg.h` (Third-party Library)
 
 #### Public C API
 
@@ -387,13 +395,11 @@ static void   renderFrame( CGContext *context,
                             struct CGFrameInfo *info,
                             NSUInteger frameNumber)
 {
-   NVGcontext   *vg;
    CGRect       canvas;
-   
-   vg     = CGContextGetNVGContext( context);
+
    canvas = CGFrameInfoGetContentRect( info);
-   
-   // Use NanoVG or other drawing APIs to render frame
+
+   // Use CGContext drawing APIs to render frame content
    // ... custom drawing code based on frameNumber ...
 }
 
