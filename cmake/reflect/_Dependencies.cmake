@@ -36,34 +36,41 @@ if( COLLECT_DEPENDENCY_LIBRARIES_AS_NAMES)
    list( APPEND DEPENDENCY_LIBRARIES "gwavi")
 else()
    if( NOT LIBGWAVI_LIBRARY)
-      find_library( LIBGWAVI_LIBRARY NAMES
-         ${MULLE_PREFERRED_LIBRARY_PREFIX}gwavi${CMAKE_DEBUG_POSTFIX}${MULLE_PREFERRED_LIBRARY_SUFFIX}
-         ${MULLE_PREFERRED_LIBRARY_PREFIX}gwavi${MULLE_PREFERRED_LIBRARY_SUFFIX}
-         ${MULLE_FALLBACK_LIBRARY_PREFIX}gwavi${CMAKE_DEBUG_POSTFIX}${MULLE_FALLBACK_LIBRARY_SUFFIX}
-         ${MULLE_FALLBACK_LIBRARY_PREFIX}gwavi${MULLE_FALLBACK_LIBRARY_SUFFIX}
-         gwavi
-         NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH NO_CMAKE_FIND_ROOT_PATH
-      )
-      if( NOT LIBGWAVI_LIBRARY AND NOT DEPENDENCY_IGNORE_SYSTEM_LIBARIES)
+      foreach( _TMP_LIBGWAVI_LIBRARY_TARGET gwavi)
+         if( TARGET ${_TMP_LIBGWAVI_LIBRARY_TARGET})
+            set( LIBGWAVI_LIBRARY ${_TMP_LIBGWAVI_LIBRARY_TARGET})
+            break()
+         endif()
+      endforeach()
+      if( NOT LIBGWAVI_LIBRARY)
          find_library( LIBGWAVI_LIBRARY NAMES
             ${MULLE_PREFERRED_LIBRARY_PREFIX}gwavi${CMAKE_DEBUG_POSTFIX}${MULLE_PREFERRED_LIBRARY_SUFFIX}
             ${MULLE_PREFERRED_LIBRARY_PREFIX}gwavi${MULLE_PREFERRED_LIBRARY_SUFFIX}
             ${MULLE_FALLBACK_LIBRARY_PREFIX}gwavi${CMAKE_DEBUG_POSTFIX}${MULLE_FALLBACK_LIBRARY_SUFFIX}
             ${MULLE_FALLBACK_LIBRARY_PREFIX}gwavi${MULLE_FALLBACK_LIBRARY_SUFFIX}
             gwavi
+            NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH NO_CMAKE_FIND_ROOT_PATH
          )
+         if( NOT LIBGWAVI_LIBRARY AND NOT DEPENDENCY_IGNORE_SYSTEM_LIBARIES)
+            find_library( LIBGWAVI_LIBRARY NAMES
+               ${MULLE_PREFERRED_LIBRARY_PREFIX}gwavi${CMAKE_DEBUG_POSTFIX}${MULLE_PREFERRED_LIBRARY_SUFFIX}
+               ${MULLE_PREFERRED_LIBRARY_PREFIX}gwavi${MULLE_PREFERRED_LIBRARY_SUFFIX}
+               ${MULLE_FALLBACK_LIBRARY_PREFIX}gwavi${CMAKE_DEBUG_POSTFIX}${MULLE_FALLBACK_LIBRARY_SUFFIX}
+               ${MULLE_FALLBACK_LIBRARY_PREFIX}gwavi${MULLE_FALLBACK_LIBRARY_SUFFIX}
+               gwavi
+            )
+         endif()
       endif()
       message( STATUS "LIBGWAVI_LIBRARY is ${LIBGWAVI_LIBRARY}")
-      #
-      # The order looks ascending, but due to the way this file is read
-      # it ends up being descending, which is what we need.
-      #
-      if( LIBGWAVI_LIBRARY)
+   endif()
+   if( LIBGWAVI_LIBRARY)
          #
          # Add LIBGWAVI_LIBRARY to DEPENDENCY_LIBRARIES list.
          # Disable with: `mulle-sourcetree mark libgwavi no-cmake-add`
          #
-         list( APPEND DEPENDENCY_LIBRARIES ${LIBGWAVI_LIBRARY})
+         if( NOT ${LIBGWAVI_LIBRARY} IN_LIST DEPENDENCY_LIBRARIES)
+            list( APPEND DEPENDENCY_LIBRARIES ${LIBGWAVI_LIBRARY})
+         endif()
          #
          # Inherit information from dependency.
          # Encompasses: no-cmake-searchpath,no-cmake-dependency,no-cmake-loader
@@ -106,14 +113,13 @@ else()
                message( STATUS "${_TMP_LIBGWAVI_DIR} not found")
             endif()
          endforeach()
-      else()
-         # Disable with: `mulle-sourcetree mark libgwavi no-require-link`
-         message( SEND_ERROR "LIBGWAVI_LIBRARY was not found in ${MULLE_PREFERRED_LIBRARY_PREFIX}gwavi${CMAKE_DEBUG_POSTFIX}${MULLE_PREFERRED_LIBRARY_SUFFIX}
+   else()
+      # Disable with: `mulle-sourcetree mark libgwavi no-require-link`
+      message( SEND_ERROR "LIBGWAVI_LIBRARY was not found in ${MULLE_PREFERRED_LIBRARY_PREFIX}gwavi${CMAKE_DEBUG_POSTFIX}${MULLE_PREFERRED_LIBRARY_SUFFIX}
 ${MULLE_PREFERRED_LIBRARY_PREFIX}gwavi${MULLE_PREFERRED_LIBRARY_SUFFIX}
 ${MULLE_FALLBACK_LIBRARY_PREFIX}gwavi${CMAKE_DEBUG_POSTFIX}${MULLE_FALLBACK_LIBRARY_SUFFIX}
 ${MULLE_FALLBACK_LIBRARY_PREFIX}gwavi${MULLE_FALLBACK_LIBRARY_SUFFIX}
 gwavi")
-      endif()
    endif()
 endif()
 
@@ -128,34 +134,41 @@ if( COLLECT_ALL_LOAD_DEPENDENCY_LIBRARIES_AS_NAMES)
    list( APPEND ALL_LOAD_DEPENDENCY_LIBRARIES "MulleImage")
 else()
    if( NOT MULLE_IMAGE_LIBRARY)
-      find_library( MULLE_IMAGE_LIBRARY NAMES
-         ${MULLE_PREFERRED_LIBRARY_PREFIX}MulleImage${CMAKE_DEBUG_POSTFIX}${MULLE_PREFERRED_LIBRARY_SUFFIX}
-         ${MULLE_PREFERRED_LIBRARY_PREFIX}MulleImage${MULLE_PREFERRED_LIBRARY_SUFFIX}
-         ${MULLE_FALLBACK_LIBRARY_PREFIX}MulleImage${CMAKE_DEBUG_POSTFIX}${MULLE_FALLBACK_LIBRARY_SUFFIX}
-         ${MULLE_FALLBACK_LIBRARY_PREFIX}MulleImage${MULLE_FALLBACK_LIBRARY_SUFFIX}
-         MulleImage
-         NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH NO_CMAKE_FIND_ROOT_PATH
-      )
-      if( NOT MULLE_IMAGE_LIBRARY AND NOT DEPENDENCY_IGNORE_SYSTEM_LIBARIES)
+      foreach( _TMP_MULLE_IMAGE_LIBRARY_TARGET MulleImage)
+         if( TARGET ${_TMP_MULLE_IMAGE_LIBRARY_TARGET})
+            set( MULLE_IMAGE_LIBRARY ${_TMP_MULLE_IMAGE_LIBRARY_TARGET})
+            break()
+         endif()
+      endforeach()
+      if( NOT MULLE_IMAGE_LIBRARY)
          find_library( MULLE_IMAGE_LIBRARY NAMES
             ${MULLE_PREFERRED_LIBRARY_PREFIX}MulleImage${CMAKE_DEBUG_POSTFIX}${MULLE_PREFERRED_LIBRARY_SUFFIX}
             ${MULLE_PREFERRED_LIBRARY_PREFIX}MulleImage${MULLE_PREFERRED_LIBRARY_SUFFIX}
             ${MULLE_FALLBACK_LIBRARY_PREFIX}MulleImage${CMAKE_DEBUG_POSTFIX}${MULLE_FALLBACK_LIBRARY_SUFFIX}
             ${MULLE_FALLBACK_LIBRARY_PREFIX}MulleImage${MULLE_FALLBACK_LIBRARY_SUFFIX}
             MulleImage
+            NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH NO_CMAKE_FIND_ROOT_PATH
          )
+         if( NOT MULLE_IMAGE_LIBRARY AND NOT DEPENDENCY_IGNORE_SYSTEM_LIBARIES)
+            find_library( MULLE_IMAGE_LIBRARY NAMES
+               ${MULLE_PREFERRED_LIBRARY_PREFIX}MulleImage${CMAKE_DEBUG_POSTFIX}${MULLE_PREFERRED_LIBRARY_SUFFIX}
+               ${MULLE_PREFERRED_LIBRARY_PREFIX}MulleImage${MULLE_PREFERRED_LIBRARY_SUFFIX}
+               ${MULLE_FALLBACK_LIBRARY_PREFIX}MulleImage${CMAKE_DEBUG_POSTFIX}${MULLE_FALLBACK_LIBRARY_SUFFIX}
+               ${MULLE_FALLBACK_LIBRARY_PREFIX}MulleImage${MULLE_FALLBACK_LIBRARY_SUFFIX}
+               MulleImage
+            )
+         endif()
       endif()
       message( STATUS "MULLE_IMAGE_LIBRARY is ${MULLE_IMAGE_LIBRARY}")
-      #
-      # The order looks ascending, but due to the way this file is read
-      # it ends up being descending, which is what we need.
-      #
-      if( MULLE_IMAGE_LIBRARY)
+   endif()
+   if( MULLE_IMAGE_LIBRARY)
          #
          # Add MULLE_IMAGE_LIBRARY to ALL_LOAD_DEPENDENCY_LIBRARIES list.
          # Disable with: `mulle-sourcetree mark MulleImage no-cmake-add`
          #
-         list( APPEND ALL_LOAD_DEPENDENCY_LIBRARIES ${MULLE_IMAGE_LIBRARY})
+         if( NOT ${MULLE_IMAGE_LIBRARY} IN_LIST ALL_LOAD_DEPENDENCY_LIBRARIES)
+            list( APPEND ALL_LOAD_DEPENDENCY_LIBRARIES ${MULLE_IMAGE_LIBRARY})
+         endif()
          #
          # Inherit information from dependency.
          # Encompasses: no-cmake-searchpath,no-cmake-dependency,no-cmake-loader
@@ -211,13 +224,12 @@ else()
                endif()
             endforeach()
          endif()
-      else()
-         # Disable with: `mulle-sourcetree mark MulleImage no-require-link`
-         message( SEND_ERROR "MULLE_IMAGE_LIBRARY was not found in ${MULLE_PREFERRED_LIBRARY_PREFIX}MulleImage${CMAKE_DEBUG_POSTFIX}${MULLE_PREFERRED_LIBRARY_SUFFIX}
+   else()
+      # Disable with: `mulle-sourcetree mark MulleImage no-require-link`
+      message( SEND_ERROR "MULLE_IMAGE_LIBRARY was not found in ${MULLE_PREFERRED_LIBRARY_PREFIX}MulleImage${CMAKE_DEBUG_POSTFIX}${MULLE_PREFERRED_LIBRARY_SUFFIX}
 ${MULLE_PREFERRED_LIBRARY_PREFIX}MulleImage${MULLE_PREFERRED_LIBRARY_SUFFIX}
 ${MULLE_FALLBACK_LIBRARY_PREFIX}MulleImage${CMAKE_DEBUG_POSTFIX}${MULLE_FALLBACK_LIBRARY_SUFFIX}
 ${MULLE_FALLBACK_LIBRARY_PREFIX}MulleImage${MULLE_FALLBACK_LIBRARY_SUFFIX}
 MulleImage")
-      endif()
    endif()
 endif()

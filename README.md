@@ -1,6 +1,8 @@
 # MulleVideo
 
-#### 🛸 MulleVideo does something
+Part of [MulleUI](https://github.com/MulleUI) — UIKit-shaped modular GUI libraries for mulle-objc.
+
+#### 🎞️ MulleVideo writes AVI video files from bitmap frames
 
 
 # MulleUIVideo
@@ -18,6 +20,14 @@ It works, sometimes.
 | ![Mulle kybernetiK tag](https://img.shields.io/github/tag/MulleUI/MulleVideo.svg) [![Build Status](https://github.com/MulleUI/MulleVideo/workflows/CI/badge.svg)](//github.com/MulleUI/MulleVideo/actions) | [RELEASENOTES](RELEASENOTES.md) | [DeepWiki for MulleVideo](https://deepwiki.com/MulleUI/MulleVideo)
 
 
+
+
+## Documentation & Guides
+
+* [API Summary](asset/dox/api/toc)
+* [Coder Guide](asset/howto/coder/mulle-video)
+* [Debugger Guide](asset/howto/debugger/mulle-video)
+* [Verifier Guide](asset/howto/verifier/mulle-video)
 
 
 

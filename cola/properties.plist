@@ -1,11 +1,12 @@
 {
    project =
    {
-      description="🛸 MulleVideo does something";
+      description="🎞️ MulleVideo writes AVI video files from bitmap frames";
       domain="github";
       language="c";
       dialect="objc";
       name="MulleVideo";
+      version="0.0.2";
       user="MulleUI";
       repo="MulleVideo";
       homepage="https://github.com/MulleUI/MulleVideo";
