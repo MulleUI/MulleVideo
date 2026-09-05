@@ -58,6 +58,5 @@ src/MulleVideo.h
 src/UIAVIMovieWriter.h
 src/UIBitmapImage+JPGEncoder.h
 src/generic/MulleObjCDeps+MulleVideo.h
-src/reflect/_MulleVideo-versioncheck.h
 )
 
