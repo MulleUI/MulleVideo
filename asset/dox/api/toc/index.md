@@ -97,7 +97,7 @@ Currently the only supported codec is MJPEG (value 0).
 
 #### Macro
 ```c
-#define MULLE_VIDEO_VERSION  ((0 << 20) | (0 << 8) | 1)
+#define MULLE_VIDEO_VERSION  ((0UL << 20) | (0 << 8) | 2)
 ```
 Version identifier for compile-time API checks. Encoded as `(MAJOR << 20) | (MINOR << 8) | PATCH`.
 
