@@ -8,7 +8,7 @@
 #
 cmake_minimum_required( VERSION 3.15...99.99)
 
-project( MulleVideo VERSION 0.0.2 LANGUAGES C)
+project( MulleVideo VERSION 0.0.3 LANGUAGES C)
 
 
 set( MULLE_PROJECT_TYPE "Library")

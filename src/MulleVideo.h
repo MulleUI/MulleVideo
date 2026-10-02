@@ -32,7 +32,7 @@
 //  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //  POSSIBILITY OF SUCH DAMAGE.
 //
-#define MULLE_VIDEO_VERSION  ((0UL << 20) | (0 << 8) | 2)
+#define MULLE_VIDEO_VERSION  ((0UL << 20) | (0 << 8) | 3)
 
 #ifdef __has_include
 # if __has_include( "NSObject.h")
