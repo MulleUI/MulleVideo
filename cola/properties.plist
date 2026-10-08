@@ -1,12 +1,11 @@
 {
    project =
    {
-      description="🎞️ MulleVideo writes AVI video files from bitmap frames";
+      description="Part of [MulleUI](https://github.com/MulleUI) — UIKit-shaped modular GUI libraries for mulle-objc.";
       domain="github";
       language="c";
       dialect="objc";
       name="MulleVideo";
-      version="0.0.3";
       user="MulleUI";
       repo="MulleVideo";
       homepage="https://github.com/MulleUI/MulleVideo";
@@ -15,7 +14,6 @@
    dependencies =
    (
       {
-         description="Even though you can already generate AVI files, this library has not reached a";
          domain="github";
          name="libgwavi";
          repo="libgwavi";
@@ -33,9 +31,9 @@
       {
          description="📒 Lists mulle-objc runtime information contained in executables.";
          domain="github";
-         name="mulle-objc-list";
-         repo="mulle-objc-list";
-         url="https://github.com/mulle-objc/mulle-objc-list";
+         name="mulle-objc-tools";
+         repo="mulle-objc-tools";
+         url="https://github.com/mulle-objc/mulle-objc-tools";
          user="mulle-objc";
       }
    );

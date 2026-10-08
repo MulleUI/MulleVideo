@@ -463,7 +463,7 @@ MulleVideo has the following direct mulle-sde dependencies:
 
 - **libgwavi** - C library for AVI file generation (external dependency)
 - **MulleImage** - Bitmap image manipulation and format conversion
-- **mulle-objc-list** - Core Objective-C runtime support (build-only dependency)
+- **mulle-objc-tools** - Core Objective-C runtime support (build-only dependency)
 
 Additionally, it includes:
 

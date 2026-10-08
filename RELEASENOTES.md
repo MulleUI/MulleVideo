@@ -1,6 +1,8 @@
 ### 0.0.3
 
-Various small improvements
+
+* add CMake subproject integration instructions listing all required dependencies as git submodules
+* rename build-time dependency mulle-objc-list to mulle-objc-tools
 
 ### 0.0.2
 
